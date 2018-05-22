@@ -13,6 +13,8 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     //let movieModel = MovieModel()               //what is the difference between these two calls?
     let movieModel: MovieModel = MovieModel()
+    let cardModel = CardModel()
+    var cardArray = [Card]()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var posterImage: UIImageView!
@@ -22,6 +24,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         collectionView.dataSource = self
         collectionView.delegate = (self as? UICollectionViewDelegate)
         movieModel.movieData.dataAvailableDelegate = self as DataAvailableDelegate
+        //cardArray = cardModel.getCards(movies: movieModel.movieData.allMovies)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,6 +47,7 @@ extension ViewController: DataAvailableDelegate{
         
         //print("HELLPO " , movieModel.movieData.allMovies[0].Poster, "jfkdlsa;j;")
         self.collectionView.reloadData()
+        cardArray = cardModel.getCards(movies: movieModel.movieData.allMovies)
     }
 }
 
