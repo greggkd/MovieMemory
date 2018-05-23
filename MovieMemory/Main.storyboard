@@ -60,21 +60,33 @@
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j4t-VL-SJx">
+                                                                <rect key="frame" x="10" y="1" width="120" height="150"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            </textView>
                                                         </subviews>
                                                     </view>
                                                     <constraints>
+                                                        <constraint firstItem="HJ1-bs-WPs" firstAttribute="top" secondItem="j4t-VL-SJx" secondAttribute="bottom" constant="8" id="4Hp-FX-Vlw"/>
                                                         <constraint firstItem="HJ1-bs-WPs" firstAttribute="top" secondItem="nT5-eE-e1w" secondAttribute="bottom" constant="8" id="NU2-yB-KFs"/>
                                                         <constraint firstItem="HJ1-bs-WPs" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="Nex-7B-qXP"/>
                                                         <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" constant="1" id="PFD-lz-n0x"/>
                                                         <constraint firstAttribute="trailing" secondItem="HJ1-bs-WPs" secondAttribute="trailing" id="Qwn-du-pEB"/>
+                                                        <constraint firstItem="j4t-VL-SJx" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" constant="1" id="RSc-Wf-C1z"/>
                                                         <constraint firstItem="nT5-eE-e1w" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" constant="10" id="SlW-99-MBQ"/>
+                                                        <constraint firstItem="j4t-VL-SJx" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" constant="10" id="UNX-LH-WAx"/>
                                                         <constraint firstAttribute="trailing" secondItem="nT5-eE-e1w" secondAttribute="trailing" constant="10" id="j5y-s3-GqR"/>
                                                         <constraint firstItem="HJ1-bs-WPs" firstAttribute="top" secondItem="nT5-eE-e1w" secondAttribute="bottom" constant="8" id="x5L-B6-C3k"/>
+                                                        <constraint firstAttribute="trailing" secondItem="j4t-VL-SJx" secondAttribute="trailing" constant="10" id="z6F-as-lqz"/>
                                                     </constraints>
                                                     <size key="customSize" width="140" height="190"/>
                                                     <connections>
                                                         <outlet property="imageView" destination="nT5-eE-e1w" id="YVj-qF-tBU"/>
                                                         <outlet property="nameLbl" destination="HJ1-bs-WPs" id="cIO-Ag-oQG"/>
+                                                        <outlet property="textView" destination="j4t-VL-SJx" id="OIP-FD-1nk"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
