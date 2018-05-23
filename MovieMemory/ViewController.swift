@@ -28,15 +28,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+
+        movieModel.movieData.dataAvailableDelegate = self as DataAvailableDelegate
+        dataAvailableDelegate?.dataAvailable()
+
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        movieModel.movieData.dataAvailableDelegate = self as DataAvailableDelegate
-        print("before call to dataAvailable()")
-        dataAvailableDelegate?.dataAvailable()
-        print("after call to dataAvailable()")
-        //print(cardArray[0].imageName, "imageName")
     }
     
     //MARK: - UICOLLECTIONVIEW PROCTOCOL METHODS
@@ -50,9 +47,30 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! CustomCollectionViewCell
 //        cell.nameLbl.text = movieModel.movieData.allMovies[indexPath.row].Title
 //        cell.imageView.downloadedFrom(link: movieModel.movieData.allMovies[indexPath.row].Poster)
-        cell.nameLbl.text = cardArray[indexPath.row].movie.Title
-        cell.imageView.downloadedFrom(link: cardArray[indexPath.row].movie.Poster)
+//        cell.nameLbl.text = cardArray[indexPath.row].movie.Title
+//        cell.imageView.downloadedFrom(link: cardArray[indexPath.row].movie.Poster)
+//        cell.textView.text = cardArray[indexPath.row].movie.Actors
+        
+        let card = cardArray[indexPath.row]
+        
+        cell.setCard(card)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! CustomCollectionViewCell
+        
+        let card = cardArray[indexPath.row]
+        
+        if card.isFlipped == false {
+            cell.flip()
+            card.isFlipped = true
+        }else{
+            cell.flipBack()
+            card.isFlipped = false
+        }
+        
     }
     
     
@@ -68,9 +86,8 @@ extension ViewController: DataAvailableDelegate{
         self.collectionView.reloadData()
         if movieModel.movieData.count == 6 {
             movieArray = movieModel.movieData.allMovies
-            print(movieArray, "fuck", movieModel.movieData.count)
+            print(movieArray, "blah blah blah", movieModel.movieData.count)
             cardArray = cardModel.getCards(movies: movieArray)
-            print(cardArray, "That was the cardArray")
         }
         
         
