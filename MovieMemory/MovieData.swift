@@ -38,7 +38,6 @@ struct MovieObj: Codable {
 
 class MovieData {
     var allMovies = [MovieObj]()
-    var poster: String = ""
     var count: Int {return allMovies.count}
     var movies = ["frozen", "guardians of the galaxy", "it", "shooter", "practical magic", "death cure"]
     //***************
@@ -54,26 +53,15 @@ class MovieData {
                 self?.dataAvailableDelegate?.dataAvailable()
             }
         }
-        
-        
+}
+    
+    func movie(at index: Int) -> MovieObj {
+        return allMovies[index]
     }
-
-    
-    
-//***************
-    
-    
-    
-    
-//    init(){
-//        self.allMovies = []
-//    }
-    
-
-//    func movie(at index: Int) -> MovieObj {
-//        return allMovies[index]
-//    }
-//   
+   
+    func movieArray() -> [MovieObj] {
+        return allMovies
+    }
     
 }
 

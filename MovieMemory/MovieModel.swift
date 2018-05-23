@@ -6,5 +6,5 @@ protocol DataAvailableDelegate: class {
 final class MovieModel{
     var movieData = MovieData()
     var currentMovieIndex: Int = 0
-
+    
 }
