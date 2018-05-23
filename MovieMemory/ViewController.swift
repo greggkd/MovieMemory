@@ -62,18 +62,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCollectionViewCell
         
         let card = cardArray[indexPath.row]
-        
+        print("im here")
         if card.isFlipped == false {
             cell.flip()
             card.isFlipped = true
+            print("inside isFlipped")
         }else{
             cell.flipBack()
             card.isFlipped = false
+            print("inside flipBack")
         }
         
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        print("it was tapped")
+    }
     
 }
 
