@@ -121,7 +121,6 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Pz4-Ln-ehd" id="kSd-mw-t9I"/>
-                        <outlet property="posterImage" destination="dRX-WS-0QZ" id="Ahh-fm-fgc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gD5-KK-kCB" userLabel="First Responder" sceneMemberID="firstResponder"/>

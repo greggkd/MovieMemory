@@ -34,17 +34,6 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
         }
     }
 
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        super.touchesBegan(touches, with: event)
-//        self.textView.backgroundColor = UIColor.black
-//    }
-    
-    
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        flipBack()
-//
-//    }
-
     func flip() {
         print("there")
         UIView.transition(from: imageView, to: textView, duration: 0.3, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
@@ -60,47 +49,4 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
 }
 
 
-class PassThroughTextView: UITextView {
-    func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        print("********")
-        if let next = next {
-            next.touchesBegan(touches as! Set<UITouch>, with: event)
-        }
-        else {
-            super.touchesBegan(touches as! Set<UITouch>, with: event)
-        }
-        
-    }
-    
-    func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        print("&&&&&&")
-        if let next = next {
-            next.touchesEnded(touches as! Set<UITouch>, with: event)
-        }
-        else {
-            super.touchesEnded(touches as! Set<UITouch>, with: event)
-        }
-    }
-    
-    func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
-        print("#########")
-        if let next = next {
-            next.touchesCancelled(touches as! Set<UITouch>, with: event)
-        }
-        else {
-            super.touchesCancelled(touches as! Set<UITouch>, with: event)
-        }
-    }
-    
-    func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        print("@@@@@@")
-        if let next = next{
-            next.touchesMoved(touches as! Set<UITouch>, with: event)
-        }
-        else {
-            super.touchesMoved(touches as! Set<UITouch>, with: event)
-        }
-    }
-    
-    
-}
+

@@ -22,7 +22,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var dataAvailableDelegate: DataAvailableDelegate?
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var posterImage: UIImageView!
+    //@IBOutlet weak var posterImage: UIImageView!
     
 
     override func viewDidLoad() {
@@ -45,11 +45,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! CustomCollectionViewCell
-//        cell.nameLbl.text = movieModel.movieData.allMovies[indexPath.row].Title
-//        cell.imageView.downloadedFrom(link: movieModel.movieData.allMovies[indexPath.row].Poster)
-//        cell.nameLbl.text = cardArray[indexPath.row].movie.Title
-//        cell.imageView.downloadedFrom(link: cardArray[indexPath.row].movie.Poster)
-//        cell.textView.text = cardArray[indexPath.row].movie.Actors
+
         
         let card = cardArray[indexPath.row]
         
@@ -93,10 +89,7 @@ extension ViewController: DataAvailableDelegate{
             print(movieArray, "blah blah blah", movieModel.movieData.count)
             cardArray = cardModel.getCards(movies: movieArray)
         }
-        
-        
     }
-    
 }
 
 extension UIImageView {
