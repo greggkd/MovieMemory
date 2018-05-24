@@ -17,8 +17,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var cardArray = [Card]()
     var movieArray = [MovieObj]()
     
-      var x = 0
-    
     var dataAvailableDelegate: DataAvailableDelegate?
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -38,7 +36,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     //MARK: - UICOLLECTIONVIEW PROCTOCOL METHODS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return movieModel.movieData.count
+
         print(cardArray.count, "card count")
         return cardArray.count
     }
@@ -61,20 +59,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         print("im here")
         if card.isFlipped == false {
             cell.flip()
-            card.isFlipped = true
+            //card.isFlipped = true
             print("inside isFlipped")
         }else{
             cell.flipBack()
-            card.isFlipped = false
+            //card.isFlipped = false
             print("inside flipBack")
         }
         
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        print("it was tapped")
-    }
-    
+        
 }
 
 
