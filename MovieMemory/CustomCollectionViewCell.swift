@@ -21,12 +21,13 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
         
         self.card = card
         imageView.downloadedFrom(link: card.movie.Poster)
-        nameLbl.text = card.movie.Title
+        nameLbl.text = card.imageName
+
 
         let textViewGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(flipBack))
         textView.addGestureRecognizer(textViewGesture)
         
-        textView.text = card.movie.Actors
+        textView.text = card.textValue
         textView.delegate = self
         
         if card.isMatched == true {
@@ -36,14 +37,18 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
 
     func flip() {
         print("there")
+        //We will be showing the Poster so flip to the textView
         UIView.transition(from: imageView, to: textView, duration: 0.3, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
         card?.isFlipped = true
+        nameLbl.text = card?.imageName
     }
     
     @objc func flipBack() {
         print("here ")
+        //We will be showing the textView so flip to the Poster
         UIView.transition(from: textView, to: imageView, duration: 0.3, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
         card?.isFlipped = false
+        nameLbl.text = card?.movie.Title
         
     }
 }

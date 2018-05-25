@@ -16,10 +16,11 @@ struct MovieObj: Codable {
     var Language: String
     var Country: String
     var Awards: String
-    var Poster: String
     var BoxOffice: String
+    var Poster: String
     
-    init(Title: String, Year: String, Genre: String, Released: String, Director: String, Writer: String, Actors: String, Plot: String, Language: String, Country: String, Awards: String, Poster: String, BoxOffice: String) {
+    
+    init(Title: String, Year: String, Genre: String, Released: String, Director: String, Writer: String, Actors: String, Plot: String, Language: String, Country: String, Awards: String, BoxOffice: String, Poster: String) {
         self.Title = Title
         self.Year = Year
         self.Genre = Genre
@@ -31,8 +32,8 @@ struct MovieObj: Codable {
         self.Language = Language
         self.Country = Country
         self.Awards = Awards
-        self.Poster = Poster
         self.BoxOffice = BoxOffice
+        self.Poster = Poster
     }
 }
 
@@ -56,12 +57,15 @@ class MovieData {
 }
     
     func movie(at index: Int) -> MovieObj {
+
         return allMovies[index]
     }
    
     func movieArray() -> [MovieObj] {
         return allMovies
     }
+    
+
     
 }
 
