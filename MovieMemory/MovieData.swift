@@ -20,7 +20,8 @@ struct MovieObj: Codable {
     var Poster: String
     
     
-    init(Title: String, Year: String, Genre: String, Released: String, Director: String, Writer: String, Actors: String, Plot: String, Language: String, Country: String, Awards: String, BoxOffice: String, Poster: String) {
+    init(Title: String, Year: String, Genre: String, Released: String, Director: String, Writer: String, Actors: String,
+         Plot: String, Language: String, Country: String, Awards: String, BoxOffice: String, Poster: String) {
         self.Title = Title
         self.Year = Year
         self.Genre = Genre
