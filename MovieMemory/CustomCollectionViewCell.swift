@@ -11,8 +11,6 @@ import UIKit
 class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var textView: UITextView?
     @IBOutlet weak var frontImageView: UIImageView!
     
     
@@ -24,20 +22,28 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     func setCard(_ card:Card, _ thisCardIndexPath: IndexPath) {
         
         self.card = card
-        //self.card?.thisCardIndexPath = thisCardIndexPath
+        
+        if card.isMatched == true {
+            //if the card has been matched make the elements invisible
+            imageView.alpha = 0
+            frontImageView.alpha = 0
+            
+            return
+            
+        }else{
+            imageView.alpha = 1
+            frontImageView.alpha = 1
+        }
+        
         imageView.downloadedFrom(link: card.movie.Poster)
-        nameLbl.text = card.imageName
 
 
-        let textViewGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
-        textView?.addGestureRecognizer(textViewGesture)
+//        let textViewGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
+//        textView?.addGestureRecognizer(textViewGesture)
         
-        textView?.text = card.textValue
-        textView?.delegate = self
+
         
-//        if card.isMatched == true {
-//
-//        }
+
     }
 
     func flipBack() {
@@ -45,8 +51,7 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             //We will be showing the Poster so flip to the textView
             UIView.transition(from: self.imageView, to: self.frontImageView, duration: 0.3, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
-            //self.card?.isFlipped = true
-            //self.nameLbl.text = self.card?.imageName
+
         }
         
 
@@ -57,18 +62,19 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
         
         //We will be showing the textView so flip to the Poster
         UIView.transition(from: frontImageView, to: imageView, duration: 0.3, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
-        //card?.isFlipped = true
-        nameLbl.text = card?.movie.Title
         
     }//EOF flip()
     
     func remove() {
         //Removes from grid
-        //TODO: animate it
-        imageView.alpha = 0
         frontImageView.alpha = 0
-        //textView?.alpha = 0
-        //nameLbl.alpha = 0
+        
+        // Animate it
+        UIView.animate(withDuration: 5, delay: 5, options: .curveEaseOut, animations: {
+            self.imageView.alpha = 0
+        }, completion: nil)
+        
+
     }
     
 

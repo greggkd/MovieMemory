@@ -18,9 +18,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var movieArray = [MovieObj]()
     
     var firstFlippedCardIndex: IndexPath?
+    var timer:Timer?
+    var milliseconds: Float = 10 * 1000 //10 seconds
     
     var dataAvailableDelegate: DataAvailableDelegate?
     
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     //@IBOutlet weak var posterImage: UIImageView!
     
@@ -34,8 +37,27 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: .commonModes)
     }
-    
+    //MARK: Timer Methods
+    @objc func timerElapsed(){
+        milliseconds -= 1
+        
+        //convert to seconds
+        let seconds = String(format: "%.2f", milliseconds/1000)
+        
+        //Set Label
+        timerLabel.text = "Time Remaining: \(seconds)"
+        
+        //Stop the timer when it reaches 0
+        if milliseconds <= 0{
+            timer?.invalidate()
+            timerLabel.textColor = UIColor.red
+        }
+    }
     //MARK: - UICOLLECTIONVIEW PROCTOCOL METHODS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
@@ -59,7 +81,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         let card = cardArray[indexPath.row]
         print("im here")
-        if card.isFlipped == false {
+        if card.isFlipped == false && card.isMatched == false{
             cell.flip()
             card.isFlipped = true
             if firstFlippedCardIndex == nil {
@@ -93,6 +115,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 //Remove the cards from the grid
                 cardOneCell?.remove()
                 cardTwoCell?.remove()
+                collectionView.reloadItems(at: [firstFlippedCardIndex!])
+                collectionView.reloadItems(at: [secondFlippedCardIndex])
+                
+                //Check if there are any cards left unmatched
+                checkGameEnded()
+                
             }else{
                 //Not a match
                 //Set the status of the cards
@@ -102,9 +130,55 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 cardOneCell?.flipBack()
                 cardTwoCell?.flipBack()
             }
+            //Tell the collectionview to reload the cell of the first card if it is nil
+            if cardOneCell == nil {
+                collectionView.reloadItems(at: [firstFlippedCardIndex!])
+            }
+            //Reset the property that tracks the first card flipped
             firstFlippedCardIndex = nil
         }//EOF checkForMatches
-    //}//EOF didSelectItemAt
+    
+    func checkGameEnded(){
+        //Determine if there are any cards unmatched
+        var isWon = true
+        //If not then user has won, stop the timer
+        for card in cardArray {
+            if card.isMatched == false {
+                isWon = false
+                break
+            }
+        }
+        
+        //Messaging variables
+        var message = ""
+        var title = ""
+        
+        
+        //If there are unmatched cards, see if there is any time left
+        if isWon == true {
+            if milliseconds > 0 {
+                timer?.invalidate()
+            }
+            
+            title = "Congratulations"
+            message = "You've won!"
+            
+        }else{
+            
+            if milliseconds > 0 {
+                return
+            }
+            
+            title = "Game Over"
+            message = "You've Lost"
+            
+        }
+        //Show won/lost messaging
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(alertAction)
+        present(alert, animated: true, completion: nil)
+    }
         
 }//EOF VC
 
