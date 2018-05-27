@@ -40,7 +40,9 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
 
 //        let textViewGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(flip))
 //        textView?.addGestureRecognizer(textViewGesture)
-        
+        if card.isFlipped == true {
+            UIView.transition(from: imageView, to: frontImageView, duration: 0, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
+        }
 
         
 
@@ -67,10 +69,11 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     
     func remove() {
         //Removes from grid
-        frontImageView.alpha = 0
+        //imageView.alpha = 0
         
         // Animate it
-        UIView.animate(withDuration: 5, delay: 5, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.5, options: .curveEaseOut, animations: {
+            self.frontImageView.alpha = 0
             self.imageView.alpha = 0
         }, completion: nil)
         

@@ -19,7 +19,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     var firstFlippedCardIndex: IndexPath?
     var timer:Timer?
-    var milliseconds: Float = 10 * 1000 //10 seconds
+    var milliseconds: Float = 30 * 1000 //10 seconds
     
     var dataAvailableDelegate: DataAvailableDelegate?
     
@@ -115,8 +115,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 //Remove the cards from the grid
                 cardOneCell?.remove()
                 cardTwoCell?.remove()
-                collectionView.reloadItems(at: [firstFlippedCardIndex!])
-                collectionView.reloadItems(at: [secondFlippedCardIndex])
+                //collectionView.reloadItems(at: [firstFlippedCardIndex!])
+                //collectionView.reloadItems(at: [secondFlippedCardIndex])
                 
                 //Check if there are any cards left unmatched
                 checkGameEnded()
