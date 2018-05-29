@@ -42,6 +42,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
         RunLoop.main.add(timer!, forMode: .commonModes)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        SoundManager.playSound(.shuffle)
+    }
+    
+    
     //MARK: Timer Methods
     @objc func timerElapsed(){
         milliseconds -= 1
@@ -83,6 +89,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         print("im here")
         if card.isFlipped == false && card.isMatched == false{
             cell.flip()
+            SoundManager.playSound(.flip)
             card.isFlipped = true
             if firstFlippedCardIndex == nil {
                 firstFlippedCardIndex = indexPath
@@ -107,7 +114,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             
             if cardOne.imageName == cardTwo.imageName {
                 //It's a match
-                
+                SoundManager.playSound(.match)
                 //Set the statuses of the cards
                 cardOne.isMatched = true
                 cardTwo.isMatched = true
@@ -123,6 +130,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 
             }else{
                 //Not a match
+                SoundManager.playSound(.nomatch)
                 //Set the status of the cards
                 cardOne.isFlipped = false
                 cardTwo.isFlipped = false
