@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xDt-qk-YzF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xDt-qk-YzF">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,9 +23,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmZ-7X-7n8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="748"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="G35-wT-T6Z">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="748"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Remaining: 10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRU-dd-bbQ">
@@ -42,13 +42,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BuM-yL-8Uv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="748"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pz4-Ln-ehd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="748"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="748" id="az5-KF-w28"/>
+                                                        <constraint firstAttribute="height" constant="900" id="az5-KF-w28"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="AIh-Py-PXF">
                                                         <size key="itemSize" width="170" height="204"/>
@@ -57,32 +57,40 @@
                                                         <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="customCell" id="yCe-BE-mac" customClass="CustomCollectionViewCell" customModule="MovieMemory" customModuleProvider="target">
-                                                            <rect key="frame" x="10" y="10" width="170" height="204"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" reuseIdentifier="customCell" id="yCe-BE-mac" customClass="CustomCollectionViewCell" customModule="MovieMemory" customModuleProvider="target">
+                                                            <rect key="frame" x="96.666666666666671" y="10" width="182" height="204"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="170" height="204"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="182" height="204"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nT5-eE-e1w">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="214"/>
+                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nT5-eE-e1w">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="204"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="170" id="6MM-Q7-spH"/>
+                                                                        </constraints>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="howl" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-Ql-Zhj">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="214"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="howl" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-Ql-Zhj">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="204"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" secondItem="FSL-Ql-Zhj" secondAttribute="height" multiplier="91:102" id="THi-zK-YSI"/>
+                                                                        </constraints>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="trailing" secondItem="FSL-Ql-Zhj" secondAttribute="trailing" id="4WE-k1-R0t"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="K0a-D2-8Fa"/>
-                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="FSL-Ql-Zhj" secondAttribute="top" id="S55-Xr-2PU"/>
-                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="bottom" secondItem="FSL-Ql-Zhj" secondAttribute="bottom" id="Tn0-2E-n9h"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="nT5-eE-e1w" secondAttribute="leading" id="fe6-Jh-8Cf"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="g8h-iR-VNV"/>
-                                                                <constraint firstAttribute="bottomMargin" secondItem="nT5-eE-e1w" secondAttribute="bottom" constant="-44" id="m71-Dw-hGN"/>
-                                                                <constraint firstAttribute="trailing" secondItem="FSL-Ql-Zhj" secondAttribute="trailing" id="z5m-DC-F9l"/>
+                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="4WU-bd-Ga4"/>
+                                                                <constraint firstAttribute="bottom" secondItem="nT5-eE-e1w" secondAttribute="bottom" id="6hq-a6-LNd"/>
+                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="LyK-Tj-7l8"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="NHD-te-BfQ"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="Udh-kX-tKe"/>
+                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="X5G-Sv-QnO"/>
+                                                                <constraint firstAttribute="trailing" secondItem="FSL-Ql-Zhj" secondAttribute="trailing" id="agv-qY-qMT"/>
+                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="c24-lw-G65"/>
+                                                                <constraint firstAttribute="bottom" secondItem="FSL-Ql-Zhj" secondAttribute="bottom" id="jFa-z8-njf"/>
+                                                                <constraint firstAttribute="bottom" secondItem="nT5-eE-e1w" secondAttribute="bottom" id="lkQ-ra-301"/>
                                                             </constraints>
-                                                            <size key="customSize" width="170" height="204"/>
+                                                            <size key="customSize" width="182" height="204"/>
                                                             <connections>
                                                                 <outlet property="frontImageView" destination="FSL-Ql-Zhj" id="7HA-4n-X4f"/>
                                                                 <outlet property="imageView" destination="nT5-eE-e1w" id="YVj-qF-tBU"/>

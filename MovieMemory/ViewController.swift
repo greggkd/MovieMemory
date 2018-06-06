@@ -37,7 +37,23 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        //The following allows room for the timer at the top
         collectionView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
+        
+        
+        
+//        let layout = UICollectionViewFlowLayout()
+//        layout.itemSize = CGSize(width: itemSize, height: itemSize)
+//        //layout.sectionInset = UIEdgeInsetsMake(10, 0, 10, 0)
+//        layout.minimumLineSpacing = 2
+//        layout.minimumInteritemSpacing = 2
+//        myCollectionView.collectionViewLayout = layout
+//        
+//        
+//        self.view.layer.cornerRadius = 30.0
+//        self.view.layer.borderWidth = 5
+//        self.view.layer.shadowOpacity = 0.7
         
         timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
         RunLoop.main.add(timer!, forMode: .commonModes)
@@ -67,15 +83,35 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //MARK: - UICOLLECTIONVIEW PROCTOCOL METHODS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
-        print(cardArray.count, "card count")
+        //print(cardArray.count, "card count")
         return cardArray.count
     }
 
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! CustomCollectionViewCell
 
         
         let card = cardArray[indexPath.row]
+        
+        
+        cell.imageView.layer.cornerRadius = 30.0
+        cell.imageView.layer.borderWidth = 5
+        cell.imageView.layer.shadowOpacity = 0.7
+        cell.imageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
+        
+        cell.frontImageView.layer.cornerRadius = 30.0
+        cell.frontImageView.layer.borderWidth = 5
+        cell.frontImageView.layer.shadowOpacity = 0.7
+        cell.frontImageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
+        
+//        cell.imageView.layer.masksToBounds = true
+//        cell.imageView.layer.cornerRadius = 30
+//        var frame = cell.imageView!.frame
+//        cell.imageView!.frame = frame
+//        cell.imageView!.layer.cornerRadius = 30
+//        cell.imageView!.clipsToBounds = true
         
         cell.setCard(card, indexPath)
         return cell
@@ -86,7 +122,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let cell = collectionView.cellForItem(at: indexPath) as! CustomCollectionViewCell
         
         let card = cardArray[indexPath.row]
-        print("im here")
+
         if card.isFlipped == false && card.isMatched == false{
             cell.flip()
             SoundManager.playSound(.flip)
