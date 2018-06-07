@@ -64,14 +64,14 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="182" height="204"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nT5-eE-e1w">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="204"/>
+                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nT5-eE-e1w">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="190.66666666666666"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="170" id="6MM-Q7-spH"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="howl" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-Ql-Zhj">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="204"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="190.66666666666666"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" secondItem="FSL-Ql-Zhj" secondAttribute="height" multiplier="91:102" id="THi-zK-YSI"/>
                                                                         </constraints>
@@ -79,16 +79,12 @@
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="4WU-bd-Ga4"/>
-                                                                <constraint firstAttribute="bottom" secondItem="nT5-eE-e1w" secondAttribute="bottom" id="6hq-a6-LNd"/>
-                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="LyK-Tj-7l8"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="NHD-te-BfQ"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="Udh-kX-tKe"/>
-                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="X5G-Sv-QnO"/>
-                                                                <constraint firstAttribute="trailing" secondItem="FSL-Ql-Zhj" secondAttribute="trailing" id="agv-qY-qMT"/>
-                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="c24-lw-G65"/>
-                                                                <constraint firstAttribute="bottom" secondItem="FSL-Ql-Zhj" secondAttribute="bottom" id="jFa-z8-njf"/>
-                                                                <constraint firstAttribute="bottom" secondItem="nT5-eE-e1w" secondAttribute="bottom" id="lkQ-ra-301"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="bottom" secondItem="nT5-eE-e1w" secondAttribute="bottom" id="7IC-vR-8OQ"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="top" secondItem="nT5-eE-e1w" secondAttribute="top" id="Acf-Bm-bfp"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="WFO-N5-JuK"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="trailing" secondItem="nT5-eE-e1w" secondAttribute="trailing" id="tSr-to-gI3"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="vZ0-j1-MoJ"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="nT5-eE-e1w" secondAttribute="leading" id="xrC-g8-cdn"/>
                                                             </constraints>
                                                             <size key="customSize" width="182" height="204"/>
                                                             <connections>

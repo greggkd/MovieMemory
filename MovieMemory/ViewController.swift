@@ -235,7 +235,7 @@ extension ViewController: DataAvailableDelegate{
         self.collectionView.reloadData()
         if movieModel.movieData.count == 6 {
             movieArray = movieModel.movieData.allMovies
-            print(movieArray, "blah blah blah", movieModel.movieData.count)
+            //print(movieArray, "blah blah blah", movieModel.movieData.count)
             cardArray = cardModel.getCards(movies: movieArray)
         }
     }

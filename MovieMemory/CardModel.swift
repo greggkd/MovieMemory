@@ -25,7 +25,7 @@ class CardModel{
             if generatedNumbersArray.contains(randomNumber) == false {
                 
                 //Log generated number
-                print(randomNumber)
+                //print(randomNumber)
                 
                 generatedNumbersArray.append(randomNumber)
                 

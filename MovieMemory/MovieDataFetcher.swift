@@ -27,7 +27,7 @@ class MovieDataFetcher {
         let myConfiguration = URLSessionConfiguration.default
         let session = URLSession(configuration: myConfiguration, delegate: nil, delegateQueue: OperationQueue.main)
         
-        print(myRequest.description, "hmm")
+        //print(myRequest.description, "hmm")
         
         let myTask = session.dataTask(with: myRequest) { (data, response, error) in
             
