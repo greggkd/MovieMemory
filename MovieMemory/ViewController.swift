@@ -25,7 +25,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    //@IBOutlet weak var posterImage: UIImageView!
+
     
 
     override func viewDidLoad() {
@@ -40,7 +40,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         //The following allows room for the timer at the top
         collectionView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
-        
         
         
 //        let layout = UICollectionViewFlowLayout()

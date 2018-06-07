@@ -19,17 +19,17 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     var card:Card?
     //var cardOne: Card()
     
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        
-//        imageView.layer.masksToBounds = true
-//        imageView.layer.cornerRadius = 10
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        imageView.layer.masksToBounds = true
+        imageView.layer.cornerRadius = 10
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     func setCard(_ card:Card, _ thisCardIndexPath: IndexPath) {
         
         self.card = card

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,9 +22,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HmZ-7X-7n8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="825"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="G35-wT-T6Z">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="825"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Remaining: 10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRU-dd-bbQ">
@@ -42,13 +41,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BuM-yL-8Uv">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="825"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pz4-Ln-ehd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="825"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="900" id="az5-KF-w28"/>
+                                                        <constraint firstAttribute="height" constant="825" id="az5-KF-w28"/>
                                                     </constraints>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="AIh-Py-PXF">
                                                         <size key="itemSize" width="170" height="204"/>
@@ -64,28 +63,16 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="182" height="204"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nT5-eE-e1w">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="190.66666666666666"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="170" id="6MM-Q7-spH"/>
-                                                                        </constraints>
+                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nT5-eE-e1w">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="191"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="howl" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-Ql-Zhj">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="190.66666666666666"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" secondItem="FSL-Ql-Zhj" secondAttribute="height" multiplier="91:102" id="THi-zK-YSI"/>
-                                                                        </constraints>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="howl" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-Ql-Zhj">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="168"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
-                                                            <constraints>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="bottom" secondItem="nT5-eE-e1w" secondAttribute="bottom" id="7IC-vR-8OQ"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="top" secondItem="nT5-eE-e1w" secondAttribute="top" id="Acf-Bm-bfp"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="WFO-N5-JuK"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="trailing" secondItem="nT5-eE-e1w" secondAttribute="trailing" id="tSr-to-gI3"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="vZ0-j1-MoJ"/>
-                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="nT5-eE-e1w" secondAttribute="leading" id="xrC-g8-cdn"/>
-                                                            </constraints>
                                                             <size key="customSize" width="182" height="204"/>
                                                             <connections>
                                                                 <outlet property="frontImageView" destination="FSL-Ql-Zhj" id="7HA-4n-X4f"/>
@@ -98,7 +85,6 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="Pz4-Ln-ehd" secondAttribute="bottom" id="EqV-7V-YdT"/>
                                                 <constraint firstAttribute="bottom" secondItem="Pz4-Ln-ehd" secondAttribute="bottom" id="Sca-Zj-2P3"/>
-                                                <constraint firstItem="Pz4-Ln-ehd" firstAttribute="width" secondItem="BuM-yL-8Uv" secondAttribute="width" id="gdc-BY-gwf"/>
                                                 <constraint firstItem="Pz4-Ln-ehd" firstAttribute="leading" secondItem="BuM-yL-8Uv" secondAttribute="leading" id="h0S-w9-BhT"/>
                                                 <constraint firstAttribute="trailing" secondItem="Pz4-Ln-ehd" secondAttribute="trailing" id="toN-Fc-hbI"/>
                                             </constraints>
@@ -114,9 +100,6 @@
                                         <constraint firstAttribute="trailing" secondItem="dRU-dd-bbQ" secondAttribute="trailing" constant="93" id="eYb-P4-SrN"/>
                                     </constraints>
                                 </view>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="BuM-yL-8Uv" secondAttribute="width" id="naC-If-nE0"/>
-                                </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
