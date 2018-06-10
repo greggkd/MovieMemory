@@ -41,7 +41,7 @@ struct MovieObj: Codable {
 class MovieData {
     var allMovies = [MovieObj]()
     var count: Int {return allMovies.count}
-    var movies = ["frozen", "guardians of the galaxy", "it", "shooter", "practical magic", "death cure"]
+    var movies = ["frozen", "guardians of the galaxy", "it", "shooter", "infinity war", "death cure", "jurassic world"]
     //***************
     let movieDataFetcher: MovieDataFetcher
     

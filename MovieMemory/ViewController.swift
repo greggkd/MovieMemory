@@ -56,7 +56,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
         RunLoop.main.add(timer!, forMode: .commonModes)
-    }
+    }//EOF viewDidLoad
     
     override func viewDidAppear(_ animated: Bool) {
         SoundManager.playSound(.shuffle)
@@ -211,16 +211,29 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if milliseconds > 0 {
                 return
             }
-            
+            timer?.invalidate()
             title = "Game Over"
             message = "You've Lost"
             
         }
         //Show won/lost messaging
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(alertAction)
+        let alertQuitAction = UIAlertAction(title: "Quit", style: .default, handler: { (action: UIAlertAction!) in self.quitWasPressed() } )
+        let alertAgainAction = UIAlertAction(title: "Play Again", style: .default, handler: { (action: UIAlertAction!) in self.againWasPressed() } )
+        alert.addAction(alertQuitAction)
+        alert.addAction(alertAgainAction)
         present(alert, animated: true, completion: nil)
+    }
+    //Quit Alert Button Logic
+    func quitWasPressed(){
+        print("quit Was Pressed")
+        exit(0)
+    }
+    
+    //Play Again Alert Button Logic
+    func againWasPressed(){
+        print("Play Again was pressed")
+        self.dataAvailable()
     }
         
 }//EOF VC
@@ -232,8 +245,10 @@ extension ViewController: DataAvailableDelegate{
       
         //print("HELLPO " , movieModel.movieData.allMovies[0].Poster, "jfkdlsa;j;")
         self.collectionView.reloadData()
-        if movieModel.movieData.count == 6 {
+        print("count", movieModel.movieData.count)
+        if movieModel.movieData.count >= 6 {
             movieArray = movieModel.movieData.allMovies
+            print("here i am")
             //print(movieArray, "blah blah blah", movieModel.movieData.count)
             cardArray = cardModel.getCards(movies: movieArray)
         }

@@ -63,16 +63,29 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="182" height="204"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nT5-eE-e1w">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="191"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nT5-eE-e1w">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="204"/>
                                                                     </imageView>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="howl" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-Ql-Zhj">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="168"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="howl" translatesAutoresizingMaskIntoConstraints="NO" id="FSL-Ql-Zhj">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="170" height="191"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="191" id="ntu-E8-vsd"/>
+                                                                            <constraint firstAttribute="width" constant="170" id="uVa-yx-nD9"/>
+                                                                        </constraints>
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="nT5-eE-e1w" secondAttribute="bottom" id="EQb-5R-dRl"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="Jui-Tm-RaC"/>
+                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="LdQ-uj-0Vp"/>
+                                                                <constraint firstAttribute="trailing" secondItem="nT5-eE-e1w" secondAttribute="trailing" id="N5a-kD-fHU"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="leading" secondItem="yCe-BE-mac" secondAttribute="leading" id="OYX-gp-DAQ"/>
+                                                                <constraint firstItem="FSL-Ql-Zhj" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="aMp-RG-NsO"/>
+                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="h6S-Ge-1US"/>
+                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="FSL-Ql-Zhj" secondAttribute="top" id="j5f-pK-EHR"/>
+                                                                <constraint firstItem="nT5-eE-e1w" firstAttribute="top" secondItem="yCe-BE-mac" secondAttribute="top" id="ukv-YK-1l3"/>
+                                                            </constraints>
                                                             <size key="customSize" width="182" height="204"/>
                                                             <connections>
                                                                 <outlet property="frontImageView" destination="FSL-Ql-Zhj" id="7HA-4n-X4f"/>
