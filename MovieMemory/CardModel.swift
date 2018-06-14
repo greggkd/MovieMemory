@@ -67,6 +67,16 @@ class CardModel{
 
     }
     
+    //This will be called when the Play Again button is pressed
+    func resetFlags(cards: [Card]) -> [Card]  {
+        for card in cards {
+            card.isFlipped = false
+            card.isMatched = false
+        }
+        
+        return cards
+    }
+    
 }
 
 

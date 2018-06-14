@@ -11,7 +11,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let movieModel = MovieModel()               //what is the difference between these two calls?
+    let movieModel = MovieModel()               
     //let movieModel: MovieModel = MovieModel()
     let cardModel = CardModel()
     var cardArray = [Card]()
@@ -93,7 +93,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         
         let card = cardArray[indexPath.row]
-        
+        print(card.isMatched, card.isFlipped)
         
         cell.imageView.layer.cornerRadius = 30.0
         cell.imageView.layer.borderWidth = 5
@@ -233,6 +233,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //Play Again Alert Button Logic
     func againWasPressed(){
         print("Play Again was pressed")
+        cardArray = cardModel.resetFlags(cards: cardArray)
         self.dataAvailable()
     }
         
@@ -243,14 +244,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 extension ViewController: DataAvailableDelegate{
     func dataAvailable() {
       
-        //print("HELLPO " , movieModel.movieData.allMovies[0].Poster, "jfkdlsa;j;")
         self.collectionView.reloadData()
-        print("count", movieModel.movieData.count)
+print("first", cardArray, "first")
         if movieModel.movieData.count >= 6 {
             movieArray = movieModel.movieData.allMovies
-            print("here i am")
-            //print(movieArray, "blah blah blah", movieModel.movieData.count)
             cardArray = cardModel.getCards(movies: movieArray)
+            print("second", cardArray, "second")
         }
     }
 }
@@ -270,7 +269,7 @@ extension UIImageView {
             }
             }.resume()
     }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFill) {
         guard let url = URL(string: link) else { return }
         downloadedFrom(url: url, contentMode: mode)
     }
