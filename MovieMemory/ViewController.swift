@@ -52,17 +52,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 //        
 //        self.view.layer.cornerRadius = 30.0
 //        self.view.layer.borderWidth = 5
-//        self.view.layer.shadowOpacity = 0.7
+        self.view.layer.shadowOpacity = 0.7
         
-        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer!, forMode: .commonModes)
+        startTimer()
+        
     }//EOF viewDidLoad
     
     override func viewDidAppear(_ animated: Bool) {
         SoundManager.playSound(.shuffle)
     }
     
-    
+    func startTimer(){
+        milliseconds = 30 * 1000
+        timer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(timerElapsed), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: .commonModes)
+    }
     //MARK: Timer Methods
     @objc func timerElapsed(){
         milliseconds -= 1
@@ -91,9 +95,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! CustomCollectionViewCell
 
+        cell.imageView.isHidden =  true
+        cell.frontImageView.isHidden = false
         
         let card = cardArray[indexPath.row]
-        print(card.isMatched, card.isFlipped)
         
         cell.imageView.layer.cornerRadius = 30.0
         cell.imageView.layer.borderWidth = 5
@@ -104,13 +109,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         cell.frontImageView.layer.borderWidth = 5
         cell.frontImageView.layer.shadowOpacity = 0.7
         cell.frontImageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
-        
-//        cell.imageView.layer.masksToBounds = true
-//        cell.imageView.layer.cornerRadius = 30
-//        var frame = cell.imageView!.frame
-//        cell.imageView!.frame = frame
-//        cell.imageView!.layer.cornerRadius = 30
-//        cell.imageView!.clipsToBounds = true
         
         cell.setCard(card, indexPath)
         return cell
@@ -226,15 +224,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     //Quit Alert Button Logic
     func quitWasPressed(){
-        print("quit Was Pressed")
         exit(0)
     }
     
     //Play Again Alert Button Logic
     func againWasPressed(){
-        print("Play Again was pressed")
         cardArray = cardModel.resetFlags(cards: cardArray)
         self.dataAvailable()
+        startTimer()
     }
         
 }//EOF VC
@@ -245,11 +242,9 @@ extension ViewController: DataAvailableDelegate{
     func dataAvailable() {
       
         self.collectionView.reloadData()
-print("first", cardArray, "first")
         if movieModel.movieData.count >= 6 {
             movieArray = movieModel.movieData.allMovies
             cardArray = cardModel.getCards(movies: movieArray)
-            print("second", cardArray, "second")
         }
     }
 }
