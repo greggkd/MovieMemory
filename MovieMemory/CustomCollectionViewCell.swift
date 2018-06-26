@@ -19,16 +19,50 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     var card:Card?
     //var cardOne: Card()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 10
-    }
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        layer.cornerRadius = 30.0
+////        imageView.layer.masksToBounds = true
+////        imageView.layer.cornerRadius = 30
+////        imageView.layer.shadowOpacity = 0.7
+////        imageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
+//    }
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        layer.cornerRadius = 30.0
+//    }
+
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+//        layer.cornerRadius = 30.0
+//        layer.borderWidth = 5
+//        layer.shadowOpacity = 0.7
+//        layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
     }
+    
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return self.layer.cornerRadius
+        }
+        set(newRadius) {
+            self.layer.cornerRadius = newRadius
+            
+        }
+    }
+    override init(frame: CGRect) {
+        
+        super.init(frame: frame)
+        
+    }
+    
+    
+    
+    
+    
+    
     
     func setCard(_ card:Card, _ thisCardIndexPath: IndexPath) {
         
@@ -99,6 +133,7 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
         UIView.animate(withDuration: 0.3, delay: 0.5, options: .curveEaseOut, animations: {
             self.frontImageView.alpha = 0
             self.imageView.alpha = 0
+            self.alpha = 0
         }, completion: nil)
         
 

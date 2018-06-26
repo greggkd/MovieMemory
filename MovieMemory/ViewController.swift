@@ -21,6 +21,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var timer:Timer?
     var milliseconds: Float = 30 * 1000 //10 seconds
     
+    var timerEnd = ""
+    
     var dataAvailableDelegate: DataAvailableDelegate?
     
     @IBOutlet weak var timerLabel: UILabel!
@@ -95,20 +97,44 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customCell", for: indexPath) as! CustomCollectionViewCell
 
+
+        
         cell.imageView.isHidden =  true
         cell.frontImageView.isHidden = false
         
         let card = cardArray[indexPath.row]
         
+        let radius: CGFloat = cell.imageView.frame.width / 2.0
+        let shadowPath2 = UIBezierPath(rect: CGRect(x:0, y:0, width: 2.1 * radius, height: cell.frame.height))
         cell.imageView.layer.cornerRadius = 30.0
         cell.imageView.layer.borderWidth = 5
-        cell.imageView.layer.shadowOpacity = 0.7
-        cell.imageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
+        //cell.layer.shadowOffset = (CGSize(width: 0.6, height: 4.0))
+//        cell.imageView.layer.shadowColor = UIColor.purple.cgColor
+//        cell.imageView.layer.shadowOffset = CGSize(width: 10, height: 10)  //Here you control x and y
+//        cell.imageView.layer.shadowOpacity = 0.5
+//        cell.imageView.layer.shadowRadius = 5.0 //Here your control your blur
+        //cell.imageView.layer.masksToBounds =  false
+        cell.imageView.layer.shadowPath = shadowPath2.cgPath
+        
+        
+        let radius2: CGFloat = cell.frame.width / 2.0 //change it to .height if you need spread for height
+        let shadowPath = UIBezierPath(rect: CGRect(x: 0, y: 0, width: 2.1 * radius2, height: cell.frame.height))
+        //cell.layer.cornerRadius = 30.0
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowRadius = 10.0
+        cell.layer.shadowOffset = CGSize(width: 0.5, height: 4.0)  //Here you control x and y
+        cell.layer.shadowOpacity = 0.75
+        cell.layer.masksToBounds =  false
+        cell.layer.shadowPath = shadowPath.cgPath
+        
+//        cell.imageView.layer.shadowOpacity = 0.7
+//        cell.imageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
         
         cell.frontImageView.layer.cornerRadius = 30.0
         cell.frontImageView.layer.borderWidth = 5
-        cell.frontImageView.layer.shadowOpacity = 0.7
-        cell.frontImageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
+        
+//        cell.frontImageView.layer.shadowOpacity = 0.7
+//        cell.frontImageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
         
         cell.setCard(card, indexPath)
         return cell
@@ -199,6 +225,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if isWon == true {
             if milliseconds > 0 {
                 timer?.invalidate()
+                timerEnd = timerLabel.text!
+                print("timerEnd", timerEnd)
             }
             
             title = "Congratulations"
@@ -210,6 +238,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 return
             }
             timer?.invalidate()
+            timerEnd = timerLabel.text!
+            print("timerEnd", timerEnd)
             title = "Game Over"
             message = "You've Lost"
             
@@ -224,16 +254,36 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     //Quit Alert Button Logic
     func quitWasPressed(){
-        exit(0)
+        //exit(0)
+        UserDefaults.standard.set(self.timerEnd, forKey: "thisTime")
+        self.performSegue(withIdentifier: "showSplash", sender: self )
     }
     
     //Play Again Alert Button Logic
     func againWasPressed(){
+        self.performSegue(withIdentifier: "showThanks", sender: self)
         cardArray = cardModel.resetFlags(cards: cardArray)
         self.dataAvailable()
         startTimer()
-    }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "showSplash"{
+            // Create a variable that you want to send
+            //let newVar = self.model.puppyData.allPuppies
+
+            // Create a new variable to store the instance of PlayerTableViewController
+            let destinationVC = segue.destination as! SplashViewController
+            destinationVC.timeEnd = self.timerEnd
+        }
+        
+        if segue.identifier == "showThanks"{
+            let destinationVC = segue.destination as! ThanksViewController
+        }
+    }
+    
 }//EOF VC
 
 

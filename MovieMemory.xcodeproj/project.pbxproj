@@ -12,7 +12,9 @@
 		320EECF9209A3BBD0075EE98 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320EECF8209A3BBD0075EE98 /* ArrayExtension.swift */; };
 		32129C5320A61CB100AB33A5 /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32129C5220A61CB100AB33A5 /* MovieData.swift */; };
 		32129C5520A62C9D00AB33A5 /* MovieDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32129C5420A62C9D00AB33A5 /* MovieDataFetcher.swift */; };
+		3226D48820E1BCEF005DE545 /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3226D48720E1BCEF005DE545 /* ThanksViewController.swift */; };
 		323980C020ACA5A100DCD370 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323980BF20ACA5A100DCD370 /* CustomCollectionViewCell.swift */; };
+		325B9FFC20E01F4300AFF539 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325B9FFB20E01F4300AFF539 /* SplashViewController.swift */; };
 		32A5FCE520B3A52C001E13C9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5FCE320B3A52C001E13C9 /* Card.swift */; };
 		32A5FCE620B3A52C001E13C9 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5FCE420B3A52C001E13C9 /* CardModel.swift */; };
 		32AC625920BB43380057195F /* dingcorrect.wav in Resources */ = {isa = PBXBuildFile; fileRef = 32AC625520BB43380057195F /* dingcorrect.wav */; };
@@ -33,7 +35,9 @@
 		320EECF8209A3BBD0075EE98 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		32129C5220A61CB100AB33A5 /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		32129C5420A62C9D00AB33A5 /* MovieDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataFetcher.swift; sourceTree = "<group>"; };
+		3226D48720E1BCEF005DE545 /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
 		323980BF20ACA5A100DCD370 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		325B9FFB20E01F4300AFF539 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		32A5FCE320B3A52C001E13C9 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		32A5FCE420B3A52C001E13C9 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		32AC625520BB43380057195F /* dingcorrect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = dingcorrect.wav; path = ../../../../Downloads/Sounds/dingcorrect.wav; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				32A5FCE320B3A52C001E13C9 /* Card.swift */,
 				32A5FCE420B3A52C001E13C9 /* CardModel.swift */,
 				32AC626020BB44400057195F /* SoundManager.swift */,
+				325B9FFB20E01F4300AFF539 /* SplashViewController.swift */,
+				3226D48720E1BCEF005DE545 /* ThanksViewController.swift */,
 			);
 			path = MovieMemory;
 			sourceTree = "<group>";
@@ -208,11 +214,13 @@
 				320EECF9209A3BBD0075EE98 /* ArrayExtension.swift in Sources */,
 				32B7AA1820880E0800253C19 /* ViewController.swift in Sources */,
 				320EECF7209A1FEF0075EE98 /* MovieModel.swift in Sources */,
+				3226D48820E1BCEF005DE545 /* ThanksViewController.swift in Sources */,
 				32A5FCE620B3A52C001E13C9 /* CardModel.swift in Sources */,
 				32129C5320A61CB100AB33A5 /* MovieData.swift in Sources */,
 				32B7AA1620880E0800253C19 /* AppDelegate.swift in Sources */,
 				32A5FCE520B3A52C001E13C9 /* Card.swift in Sources */,
 				32AC626120BB44400057195F /* SoundManager.swift in Sources */,
+				325B9FFC20E01F4300AFF539 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
