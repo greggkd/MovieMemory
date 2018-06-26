@@ -280,7 +280,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
         if segue.identifier == "showThanks"{
-            let destinationVC = segue.destination as! ThanksViewController
+            _ = segue.destination as! ThanksViewController
         }
     }
     

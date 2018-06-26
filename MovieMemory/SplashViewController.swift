@@ -30,10 +30,10 @@ class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if let x = UserDefaults.standard.object(forKey: "lastTime") as? String{
             lastTimeLbl.text = x
-        }else
-        {
-            UserDefaults.standard.setValue(timeLbl.text, forKey: "lastTime")
         }
+        
+        UserDefaults.standard.setValue(timeLbl.text, forKey: "lastTime")
+        
     }
 
     /*
