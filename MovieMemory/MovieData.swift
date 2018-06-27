@@ -47,6 +47,7 @@ class MovieData {
     
     weak var dataAvailableDelegate: DataAvailableDelegate?
     
+    //MARK: Base Requirement Two network calls (1)
     init() {
         movieDataFetcher = MovieDataFetcher()
         for movie in movies {

@@ -31,7 +31,7 @@ class SplashViewController: UIViewController {
         if let x = UserDefaults.standard.object(forKey: "lastTime") as? String{
             lastTimeLbl.text = x
         }
-        
+        //MARK: Base Requirement User Persistence
         UserDefaults.standard.setValue(timeLbl.text, forKey: "lastTime")
         
     }

@@ -226,7 +226,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             if milliseconds > 0 {
                 timer?.invalidate()
                 timerEnd = timerLabel.text!
-                print("timerEnd", timerEnd)
             }
             
             title = "Congratulations"
@@ -239,7 +238,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
             timer?.invalidate()
             timerEnd = timerLabel.text!
-            print("timerEnd", timerEnd)
             title = "Game Over"
             message = "You've Lost"
             
@@ -255,6 +253,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     //Quit Alert Button Logic
     func quitWasPressed(){
         //exit(0)
+        //MARK: Base Requirement user Persistence
         UserDefaults.standard.set(self.timerEnd, forKey: "thisTime")
         self.performSegue(withIdentifier: "showSplash", sender: self )
     }
@@ -298,6 +297,8 @@ extension ViewController: DataAvailableDelegate{
         }
     }
 }
+
+//MARK: Base Requirement Two network calls (2)
 
 extension UIImageView {
     func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {

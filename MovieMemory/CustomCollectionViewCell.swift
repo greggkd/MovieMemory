@@ -17,30 +17,13 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     var firstFlippedCardIndex:IndexPath?
     
     var card:Card?
-    //var cardOne: Card()
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        layer.cornerRadius = 30.0
-////        imageView.layer.masksToBounds = true
-////        imageView.layer.cornerRadius = 30
-////        imageView.layer.shadowOpacity = 0.7
-////        imageView.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
-//    }
-    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        layer.cornerRadius = 30.0
-//    }
+
 
     
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-//        layer.cornerRadius = 30.0
-//        layer.borderWidth = 5
-//        layer.shadowOpacity = 0.7
-//        layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
+
     }
     
     @IBInspectable var cornerRadius: CGFloat {
@@ -94,7 +77,7 @@ class CustomCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
             
             
         }
-        
+        //MARK: Base Requirement Two network calls (2)
         imageView.downloadedFrom(link: card.movie.Poster)
 
 

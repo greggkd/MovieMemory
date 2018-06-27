@@ -158,23 +158,25 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSG-NZ-EwD">
                                             <rect key="frame" x="114" y="391" width="147" height="30"/>
-                                            <size key="titleShadowOffset" width="4" height="4"/>
+                                            <color key="backgroundColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <size key="titleShadowOffset" width="10" height="10"/>
                                             <state key="normal" title="OK">
                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleShadowColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                     <integer key="value" value="5"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
-                                                    <integer key="value" value="5"/>
+                                                    <integer key="value" value="10"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="thanksButton:" destination="tl5-nt-6YQ" eventType="touchUpInside" id="6qJ-FW-Vfh"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thank for Playing Again!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHe-o8-Q06">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thanks For Playing Again!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHe-o8-Q06">
                                             <rect key="frame" x="8" y="196" width="359" height="66"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -250,8 +252,8 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="2Sv-Rq-6gP" firstAttribute="top" secondItem="K7M-lg-bGK" secondAttribute="top" constant="302" id="ErD-Db-Cp7"/>
-                                        <constraint firstAttribute="bottom" secondItem="51w-bD-1zd" secondAttribute="bottom" constant="362" id="NgF-8q-lVX"/>
+                                        <constraint firstItem="51w-bD-1zd" firstAttribute="top" secondItem="K7M-lg-bGK" secondAttribute="top" constant="430" id="5Nk-yc-kaj"/>
+                                        <constraint firstAttribute="trailing" secondItem="51w-bD-1zd" secondAttribute="trailing" constant="98" id="7kV-He-TqU"/>
                                         <constraint firstItem="2Sv-Rq-6gP" firstAttribute="leading" secondItem="K7M-lg-bGK" secondAttribute="leading" constant="97" id="VnH-0c-O0v"/>
                                         <constraint firstItem="2Sv-Rq-6gP" firstAttribute="leading" secondItem="51w-bD-1zd" secondAttribute="leading" id="cXF-OW-9a0"/>
                                     </constraints>
@@ -273,7 +275,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qQZ-bR-qov" firstAttribute="bottom" secondItem="JN7-Nr-Ww6" secondAttribute="bottom" constant="390" id="0vS-kO-OeW"/>
+                            <constraint firstItem="JN7-Nr-Ww6" firstAttribute="top" secondItem="2Sv-Rq-6gP" secondAttribute="bottom" constant="45" id="03j-8B-Ypn"/>
                             <constraint firstItem="wB4-zW-wfz" firstAttribute="leading" secondItem="qQZ-bR-qov" secondAttribute="leading" id="4tB-Vf-SCA"/>
                             <constraint firstItem="qQZ-bR-qov" firstAttribute="trailing" secondItem="wB4-zW-wfz" secondAttribute="trailing" id="BWT-tp-fKs"/>
                             <constraint firstItem="xiU-Lk-DHA" firstAttribute="trailing" secondItem="qQZ-bR-qov" secondAttribute="trailing" id="CVw-Zv-i2Y"/>
@@ -281,9 +283,12 @@
                             <constraint firstItem="xiU-Lk-DHA" firstAttribute="leading" secondItem="qQZ-bR-qov" secondAttribute="leading" id="HiI-JT-b07"/>
                             <constraint firstItem="JN7-Nr-Ww6" firstAttribute="top" secondItem="woQ-Xn-8me" secondAttribute="bottom" constant="109" id="JNH-0H-91b"/>
                             <constraint firstItem="JN7-Nr-Ww6" firstAttribute="leading" secondItem="qQZ-bR-qov" secondAttribute="leading" constant="28" id="JQ2-2W-fWm"/>
+                            <constraint firstItem="woQ-Xn-8me" firstAttribute="top" secondItem="qQZ-bR-qov" secondAttribute="top" constant="195" id="KL0-2H-COR"/>
+                            <constraint firstItem="51w-bD-1zd" firstAttribute="top" secondItem="JN7-Nr-Ww6" secondAttribute="bottom" constant="42" id="YaA-gY-Fpc"/>
                             <constraint firstItem="qQZ-bR-qov" firstAttribute="trailing" secondItem="JN7-Nr-Ww6" secondAttribute="trailing" constant="115" id="ZAU-yz-oLl"/>
                             <constraint firstAttribute="bottom" secondItem="xiU-Lk-DHA" secondAttribute="bottom" id="aLr-FD-KvH"/>
                             <constraint firstAttribute="bottom" secondItem="wB4-zW-wfz" secondAttribute="bottom" id="fzc-nj-BY9"/>
+                            <constraint firstItem="2Sv-Rq-6gP" firstAttribute="top" secondItem="woQ-Xn-8me" secondAttribute="bottom" constant="43" id="iVl-1I-5rQ"/>
                             <constraint firstItem="qQZ-bR-qov" firstAttribute="trailing" secondItem="woQ-Xn-8me" secondAttribute="trailing" constant="56" id="nmx-pS-kDN"/>
                             <constraint firstItem="wB4-zW-wfz" firstAttribute="top" secondItem="ZKC-Zf-yew" secondAttribute="top" id="sc5-ki-OA6"/>
                             <constraint firstItem="xiU-Lk-DHA" firstAttribute="top" secondItem="ZKC-Zf-yew" secondAttribute="top" id="xVT-5t-31z"/>

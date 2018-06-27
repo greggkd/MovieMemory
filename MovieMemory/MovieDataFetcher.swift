@@ -2,6 +2,7 @@
 import Foundation
 
 //struct MovieDataFetcher  {
+//MARK: Base Requirement Two network calls (1)
 class MovieDataFetcher {
     
     // nested function
